@@ -1,0 +1,62 @@
+<div class="global-notification">
+    <p>
+        BLACK FRİDAY - SEÇİLİ ÜRÜNLERDE %30 İNDİRİM
+        <a href="shop.html"> SATIN AL</a>
+    </p>
+</div>
+<div class="header-row">
+    <div class="container">
+        <div class="header-wrapper">
+            <div class="header-left">
+                <a asp-controller="Home" asp-action="Index" class="logo">
+                    <img src="https://w7.pngwing.com/pngs/713/936/png-transparent-online-shopping-shopping-cart-logo-e-commerce-market-blue-angle-company.png"
+                        style="width: 60px;" alt="">
+                </a>
+            </div>
+            <div>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" asp-controller="Product"
+                            asp-action="Index">Products</a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <li class="nav-item dropdown" style="list-style-type: none;">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Categories
+                    </a>
+                    @await Component.InvokeAsync("CategoriesMenu")
+                </li>
+            </div>
+            <div class="header-center">
+                <div class="wrap">
+                    <div class="search">
+                        <input type="text" class="searchTerm" placeholder="Ürün, Kategori, Marka Ara" />
+                        <button type="submit" class="searchButton">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="header-right-links">
+                    <div class="header-cart">
+                        <a asp-page="/Cart" class="header-cart-link">
+                            <i class="bi bi-cart2"></i>
+                            <span class="header-cart-count">(@await Component.InvokeAsync("CartSummary"))</span>
+                        </a>
+                    </div>
+                    <div class="header-account">
+                        <div class="btn-group " role="group" aria-label="Basic example">
+                            <partial name="_LoginMenu" />
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

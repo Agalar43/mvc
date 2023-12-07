@@ -1,0 +1,32 @@
+@if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+{
+
+    <a asp-controller="Account" asp-action="Login" class="btn btn-outline-warning">
+        <i class="fa-solid fa-user"></i>
+        Admin Panel</a>
+}
+
+@if (User.Identity.IsAuthenticated)
+{
+
+    <a asp-controller="Account" asp-action="Login" class="btn btn-outline-warning">
+        <i class="fa-solid fa-user"></i>
+        My Profile</a>
+    <a asp-controller="Account" asp-action="Logout" asp-route-returnUrl="@Context.Request.PathAndQuery()"
+        class="btn btn-outline-warning">
+        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        Logout</a>
+
+}
+else
+{
+
+    <a asp-controller="Account" asp-action="Login" asp-route-returnUrl="@Context.Request.PathAndQuery()"
+        class="btn btn-outline-warning">
+        <i class="fa-solid fa-right-to-bracket"></i>
+        Login</a>
+    <a asp-controller="Account" asp-action="Register" class="btn btn-outline-warning">
+        <i class="fa-solid fa-user-plus"></i>
+        Register Now</a>
+
+}

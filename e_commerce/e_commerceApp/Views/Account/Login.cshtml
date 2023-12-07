@@ -1,0 +1,93 @@
+@model LoginModel
+@{
+    Layout = null;
+}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>login</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/login.css" />
+    <link rel="stylesheet" href="~/lib/font-awesome/css/all.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css" />
+</head>
+
+
+<body>
+    <div class="wrapper bg-white">
+        <div class="h2 text-center">e_commerceApp</div>
+        <div class="h4 text-muted text-center pt-2">Login</div>
+        <div class="text-danger my-3" asp-validation-summary="All"></div>
+        <form class="pt-3" method="post" asp-action="Login">
+
+            <input type="hidden" asp-for="ReturnUrl">
+            <div class="form-group py-2">
+                <div class="input-field">
+                    <span class="bi bi-person-circle"></span>
+                    <input  asp-for="Email" type="text" placeholder="Write your email" />
+                </div>
+            </div>
+            <div class="form-group py-1 pb-2">
+                <div class="input-field">
+                    <span class="bi bi-person-fill-lock"></span>
+                    <input asp-for="Password" type="password" id="password" name="password"
+                        placeholder="write your password" />
+                    <span class="bi bi-eye-fill" onclick="togglePassword()"></span>
+                </div>
+            </div>
+            <div class="d-flex align-items-start">
+                <div class="remember">
+                    <label class="option text-muted">
+                        Remember me <input type="radio" name="radio" />
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+
+                <div class="ml-auto">
+                    <a href="password.html" id="forgot" style="margin-left: 10px;">Forgot your password?</a>
+                </div>
+            </div>
+            <button class="btn btn-block text-center my-3">
+                <i class="fa fa-solid fa-right-to-bracket"></i>
+                Login</button>
+
+            <div class="text-center pt-3 text-muted">
+                Üye değil misiniz? <a asp-controller="Account" asp-action="Register">Register</a>
+            </div>
+        </form>
+
+
+        <div class="box">
+            <h6>Diğer Seçenekler</h6>
+        </div>
+        <button class="btn btn-danger">
+            <span class="bi bi-google"></span>
+        </button>
+        <button class="btn btn-danger">
+            <span class="bi bi-facebook"></span>
+        </button>
+
+    </div>
+
+
+
+
+
+
+    <script>
+        function togglePassword() {
+            var element = document.getElementById("password");
+            element.type = element.type == "password" ? "text" : "password";
+        }
+    </script>
+    <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/font-awesome/js/all.min.js"></script>
+</body>
+
+</html>
