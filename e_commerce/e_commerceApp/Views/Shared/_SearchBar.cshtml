@@ -1,0 +1,12 @@
+<form method="get" asp-controller="Product" asp-action="Index">
+    <input type="hidden" name="CategoryID" value="@(Context.Request.Query["CategoryID"])" />
+    <div class="wrap">
+        <div class="search">
+            <input  type="text" class="searchTerm" name="SearchTerm" placeholder="Product Search" />
+           
+            <button type="submit" class="searchButton">
+                <i class="bi bi-search"></i>
+            </button>
+        </div>
+    </div>
+</form>

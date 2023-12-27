@@ -18,5 +18,10 @@ namespace Services
         {
             return _manager.Category.FindAll(trackChanges);
         }
+
+        public Category GetCategoryProduct(int id)
+        {
+            return _manager.Category.FindProduct(id);
+        }
     }
 }

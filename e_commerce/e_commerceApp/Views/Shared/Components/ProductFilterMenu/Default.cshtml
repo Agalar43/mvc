@@ -1,0 +1,22 @@
+<div class="my-3">
+    <h6 class="lead">
+        <i class="fa fa-filter text-secondary"></i>
+        Filters
+    </h6>
+</div>
+<div class="my-2">
+<form class="form-group" method="get" asp-controller="Product" asp-action="Index">
+    <input type="hidden" name="CategoryID" value="@(Context.Request.Query["CategoryID"])" />
+
+
+    <div class="form-group my-2">
+        <input class="form-control" type="text" name="minPrice" placeholder="Min price">
+    </div>  
+
+    <div class="form-group my-2">
+        <input class="form-control" type="text" name="maxPrice" placeholder="Max price">
+    </div> 
+
+    <button type="submit" class="btn btn-outline-warning form-control my-3">Filter</button>
+</form>
+</div>

@@ -1,0 +1,36 @@
+@model IEnumerable<IdentityUser>
+
+<div class="text-center my*3">
+    <div class="display-6">
+        Users
+    </div>
+</div>
+<div>
+    <a asp-action="Create" class="btn btn-outline-success">
+        <i class="fa-solid fa-plus"></i>
+        Create</a>
+</div>
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>UserName</th>
+            <th>Roles</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (IdentityUser user in Model)
+        {
+            <tr>
+                <td>@user.Id</td>
+                <td>@user.UserName</td>
+                <td user-name="@user.UserName" user-role=""></td>
+                <td>@user.Email</td>
+                <td>@user.PhoneNumber</td>
+                <td></td>
+            </tr>
+        }
+    </tbody>
+</table>

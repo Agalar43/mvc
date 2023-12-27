@@ -2,7 +2,7 @@ namespace Entities.Models
 {
     public class CartLine
     {
-        public int CartID { get; set; }
+        public int CartLineID { get; set; }
 
         public Product Product { get; set; } = new();
 

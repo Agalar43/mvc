@@ -1,0 +1,32 @@
+@model OrderCompleteViewModel
+
+
+
+<div class="text-danger" asp-validation-summary="All"></div>
+<form method="post" asp-controller="Order" asp-action="Checkout">
+
+    <div class="form-group my-3">
+        <label asp-for="order.Name">Name</label>
+        <input asp-for="order.Name" class="form-control" type="text">
+    </div>
+    <div class="form-group my-3">
+        <label asp-for="order.Adress"></label>
+        <select asp-for="order.Adress" name="" id="" class="form-control">
+            @foreach (var ad in Model.address)
+            {
+                <option value="@ad.AddressName">@ad.AddressName</option>
+
+            }
+        </select>
+    </div>
+
+    <div class="form-group my-3">
+        <input asp-for="order.GiftWrap">
+        <label>Gift wrap these items.</label>
+    </div>
+    <div class="text-center">
+        <button type="submit" class="btn btn-outline-warning">
+            Complate Order
+        </button>
+    </div>
+</form>

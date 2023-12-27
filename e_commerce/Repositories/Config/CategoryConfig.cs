@@ -12,7 +12,8 @@ namespace Repositories.Config
             builder.Property(c => c.CategoryName).IsRequired();
             builder.HasData(
                 new Category() { CategoryID = 1, CategoryName = "Elektronik" },
-                new Category() { CategoryID = 2, CategoryName = "Book" }
+                new Category() { CategoryID = 2, CategoryName = "Book" },
+                new Category() { CategoryID = 3, CategoryName = "Shoes" }
             );
         }
     }

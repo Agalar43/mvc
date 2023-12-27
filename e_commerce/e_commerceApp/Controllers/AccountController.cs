@@ -17,6 +17,7 @@ namespace e_commerceApp.Controllers
 
         public IActionResult Login([FromQuery] string ReturnUrl = "/Account/Login")
         {
+            ViewData["Title"] = "Login";
             return View(new LoginModel()
             {
                 ReturnUrl = ReturnUrl
@@ -51,6 +52,7 @@ namespace e_commerceApp.Controllers
 
         public IActionResult Register()
         {
+            ViewData["Title"] = "Register";
             return View();
         }
 
@@ -86,6 +88,12 @@ namespace e_commerceApp.Controllers
             }
             return View();
         }
+
+        public IActionResult AccessDenied([FromQuery(Name ="ReturnUrl")] string returnUrl)
+        {
+            return View();
+        }
+
     }
 
 }

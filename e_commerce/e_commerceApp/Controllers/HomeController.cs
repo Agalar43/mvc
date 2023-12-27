@@ -6,6 +6,7 @@ namespace e_commerceApp.Controllers
     {
         public IActionResult Index()
         {
+            ViewData["Title"] = "Home";
             return View();
         }
     }

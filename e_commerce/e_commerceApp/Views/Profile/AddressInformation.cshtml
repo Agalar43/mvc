@@ -1,0 +1,51 @@
+@model IEnumerable<Address>
+
+
+<div class="row">
+    <div class="col-md-2 my-4">
+        <partial name="_ProfileSideBar" />
+    </div>
+    <div class="col-md-9 mx-3 my-5">
+
+        @if (Model.Count() > 0)
+        {
+            @foreach (var add in Model)
+            {
+                <div class="row shadow my-3">
+                    <div class="col-md-3 border-1 border-dark p-3 bg-light">
+                        <h5 class="display-5 text-center">
+                            <i class="fa fa-address-book text-danger"></i>
+                            <br>
+                        </h5>
+                    </div>
+                    <div class="col-md-6">
+                        <h5>@add.CityName</h5>
+                        <p>@add.AddressName</p>
+                        <p>@add.DistrictName</p>
+                        <p>@add.ZipCode</p>
+                    </div>
+                    <div class="col">
+                        <a asp-action="Delete" asp-route-id="@add.AddressID" class="btn btn-danger my-4 mx-5">
+                            <i class="fa-solid fa-trash"></i>
+                            Delete</a>
+                    </div>
+
+                </div>
+
+            }
+
+        }
+        else
+        {
+            <div class="alert alert-info">
+                <p class="lead">There is no Address yet</p>
+            </div>
+
+        }
+    </div>
+    <div class="" style="margin-left:950px; margin-top:auto;">
+        <a asp-action="AddressCreate" class="btn btn-outline-warning">
+            <i class="fa fa-plus"></i>
+            Adress Create</a>
+    </div>
+</div>

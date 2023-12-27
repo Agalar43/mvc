@@ -1,7 +1,7 @@
 @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
 {
 
-    <a asp-controller="Account" asp-action="Login" class="btn btn-outline-warning">
+    <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index" class="btn btn-outline-warning">
         <i class="fa-solid fa-user"></i>
         Admin Panel</a>
 }
@@ -9,7 +9,7 @@
 @if (User.Identity.IsAuthenticated)
 {
 
-    <a asp-controller="Account" asp-action="Login" class="btn btn-outline-warning">
+    <a asp-controller="Profile" asp-action="Index" class="btn btn-outline-warning">
         <i class="fa-solid fa-user"></i>
         My Profile</a>
     <a asp-controller="Account" asp-action="Logout" asp-route-returnUrl="@Context.Request.PathAndQuery()"

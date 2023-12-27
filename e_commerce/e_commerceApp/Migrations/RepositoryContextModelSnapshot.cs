@@ -17,6 +17,56 @@ namespace ecommerceApp.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.0");
 
+            modelBuilder.Entity("Entities.Models.Address", b =>
+                {
+                    b.Property<int>("AddressID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("AddressName")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("CityName")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("DistrictName")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ZipCode")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("userId")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("AddressID");
+
+                    b.ToTable("Address");
+                });
+
+            modelBuilder.Entity("Entities.Models.CartLine", b =>
+                {
+                    b.Property<int>("CartLineID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("OrderID")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("ProductID")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("CartLineID");
+
+                    b.HasIndex("OrderID");
+
+                    b.HasIndex("ProductID");
+
+                    b.ToTable("CartLine");
+                });
+
             modelBuilder.Entity("Entities.Models.Category", b =>
                 {
                     b.Property<int>("CategoryID")
@@ -41,7 +91,73 @@ namespace ecommerceApp.Migrations
                         {
                             CategoryID = 2,
                             CategoryName = "Book"
+                        },
+                        new
+                        {
+                            CategoryID = 3,
+                            CategoryName = "Shoes"
                         });
+                });
+
+            modelBuilder.Entity("Entities.Models.Comment", b =>
+                {
+                    b.Property<int>("CommentId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("productId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("CommentId");
+
+                    b.HasIndex("productId");
+
+                    b.ToTable("Comments");
+
+                    b.HasData(
+                        new
+                        {
+                            CommentId = 1,
+                            Description = "Default comment",
+                            productId = 1
+                        });
+                });
+
+            modelBuilder.Entity("Entities.Models.Order", b =>
+                {
+                    b.Property<int>("OrderID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Adress")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("GiftWrap")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("OrderedAt")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("Shipped")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("userId")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("OrderID");
+
+                    b.ToTable("Orders");
                 });
 
             modelBuilder.Entity("Entities.Models.Product", b =>
@@ -56,6 +172,24 @@ namespace ecommerceApp.Migrations
                     b.Property<string>("ImageUrl")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("ImageUrl1")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ImageUrl2")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ImageUrl3")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ImageUrl4")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ImageUrl5")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ImageUrl6")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("ProductDescription")
                         .HasColumnType("TEXT");
 
@@ -63,8 +197,11 @@ namespace ecommerceApp.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("ProductRanking")
-                        .HasColumnType("TEXT");
+                    b.Property<int?>("ProductRanking")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("ShowCase")
+                        .HasColumnType("INTEGER");
 
                     b.Property<int?>("Stock")
                         .IsRequired()
@@ -87,7 +224,8 @@ namespace ecommerceApp.Migrations
                             ImageUrl = "null",
                             ProductDescription = "son model işlemciye sahip",
                             ProductName = "Bilgisayar",
-                            ProductRanking = "0",
+                            ProductRanking = 0,
+                            ShowCase = false,
                             Stock = 10,
                             unitPrice = 1000m
                         },
@@ -98,7 +236,44 @@ namespace ecommerceApp.Migrations
                             ImageUrl = "null",
                             ProductDescription = "son model işlemciye sahip",
                             ProductName = "Telefon",
-                            ProductRanking = "0",
+                            ProductRanking = 0,
+                            ShowCase = true,
+                            Stock = 10,
+                            unitPrice = 1000m
+                        },
+                        new
+                        {
+                            ProductID = 3,
+                            CategoryID = 2,
+                            ImageUrl = "null",
+                            ProductDescription = "son model işlemciye sahip",
+                            ProductName = "kitap",
+                            ProductRanking = 0,
+                            ShowCase = false,
+                            Stock = 10,
+                            unitPrice = 1000m
+                        },
+                        new
+                        {
+                            ProductID = 4,
+                            CategoryID = 2,
+                            ImageUrl = "null",
+                            ProductDescription = "son model işlemciye sahip",
+                            ProductName = "kitap",
+                            ProductRanking = 0,
+                            ShowCase = true,
+                            Stock = 10,
+                            unitPrice = 1000m
+                        },
+                        new
+                        {
+                            ProductID = 5,
+                            CategoryID = 3,
+                            ImageUrl = "null",
+                            ProductDescription = "son model işlemciye sahip",
+                            ProductName = "telefon",
+                            ProductRanking = 0,
+                            ShowCase = true,
                             Stock = 10,
                             unitPrice = 1000m
                         });
@@ -132,19 +307,19 @@ namespace ecommerceApp.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "59b47134-81f3-4a30-b5cb-058afc837084",
+                            Id = "34372bd0-78cf-4c67-99e4-5d930920fe16",
                             Name = "user",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "86122545-8c35-435d-8f5b-5bccaab5e859",
+                            Id = "0b5ae38f-9cac-4275-8004-871db88c8a48",
                             Name = "Editor",
                             NormalizedName = "EDITOR"
                         },
                         new
                         {
-                            Id = "1fd7d421-b846-4d73-8cc2-4f15c3b1f5d3",
+                            Id = "e68e1cf1-fd6c-4fb6-8f45-5f802cd6f8ed",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -316,6 +491,32 @@ namespace ecommerceApp.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("Entities.Models.CartLine", b =>
+                {
+                    b.HasOne("Entities.Models.Order", null)
+                        .WithMany("Lines")
+                        .HasForeignKey("OrderID");
+
+                    b.HasOne("Entities.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("Entities.Models.Comment", b =>
+                {
+                    b.HasOne("Entities.Models.Product", "product")
+                        .WithMany()
+                        .HasForeignKey("productId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("product");
+                });
+
             modelBuilder.Entity("Entities.Models.Product", b =>
                 {
                     b.HasOne("Entities.Models.Category", "category")
@@ -379,6 +580,11 @@ namespace ecommerceApp.Migrations
             modelBuilder.Entity("Entities.Models.Category", b =>
                 {
                     b.Navigation("products");
+                });
+
+            modelBuilder.Entity("Entities.Models.Order", b =>
+                {
+                    b.Navigation("Lines");
                 });
 #pragma warning restore 612, 618
         }

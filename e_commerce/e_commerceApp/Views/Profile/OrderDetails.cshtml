@@ -1,0 +1,21 @@
+@model Order
+@{
+    var total = @Model.Lines.Sum(c => c.Product.unitPrice * c.Quantity);
+}
+<div class="row shadow my-3">
+    <ul class="list-group">
+        @foreach (var cartItem in Model?.Lines)
+        {
+            <li class="list-group-item d-flex justify-content-between brand">
+                <b>@cartItem.Product.ProductName</b>
+                <b>@cartItem.Quantity * @cartItem.Product.unitPrice.ToString("c2") =
+                    @((cartItem.Quantity *
+                        cartItem.Product.unitPrice).ToString("c2"))</b>
+            </li>
+        }
+        <li class="list-group-item d-flex justify-content-between text-danger">
+            Total
+            <b>@total.ToString("c2")</b>
+        </li>
+    </ul>
+</div>
