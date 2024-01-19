@@ -50,8 +50,11 @@ namespace Services
                 throw new Exception(" Product Not Found");
             return address;
         }
-    
-    
-    
+
+        public Address? GetOrderAddress(int addressId)
+        {
+            var address = _manager.Address.GetOrderAddress(addressId);
+            return address;
+        }
     }
 }

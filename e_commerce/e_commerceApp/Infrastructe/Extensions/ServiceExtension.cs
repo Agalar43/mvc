@@ -54,6 +54,7 @@ namespace e_commerceApp.Infrastructe.Extensions
             services.AddScoped<IAuthService, AuthManager>();
             services.AddScoped<IAddressService, AddressManager>();
             services.AddScoped<ICommentService, CommentManager>();
+            services.AddScoped<IPaymentService,PaymentService>();
         }
 
         public static void ConfigureRouting(this IServiceCollection services)

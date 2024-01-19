@@ -11,7 +11,7 @@ using Repositories;
 namespace ecommerceApp.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    [Migration("20231225193110_init")]
+    [Migration("20240103193338_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -139,6 +139,9 @@ namespace ecommerceApp.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("AddressId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Adress")
                         .HasColumnType("TEXT");
 
@@ -159,6 +162,8 @@ namespace ecommerceApp.Migrations
                         .HasColumnType("TEXT");
 
                     b.HasKey("OrderID");
+
+                    b.HasIndex("AddressId");
 
                     b.ToTable("Orders");
                 });
@@ -310,19 +315,19 @@ namespace ecommerceApp.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "34372bd0-78cf-4c67-99e4-5d930920fe16",
+                            Id = "303c2978-d64e-4fcf-a188-e7564ae1703b",
                             Name = "user",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "0b5ae38f-9cac-4275-8004-871db88c8a48",
+                            Id = "d4e7ae0d-fc28-47df-824f-de35514110c6",
                             Name = "Editor",
                             NormalizedName = "EDITOR"
                         },
                         new
                         {
-                            Id = "e68e1cf1-fd6c-4fb6-8f45-5f802cd6f8ed",
+                            Id = "c3f203a3-e477-4de1-9add-e060afb7e52d",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -518,6 +523,17 @@ namespace ecommerceApp.Migrations
                         .IsRequired();
 
                     b.Navigation("product");
+                });
+
+            modelBuilder.Entity("Entities.Models.Order", b =>
+                {
+                    b.HasOne("Entities.Models.Address", "address")
+                        .WithMany()
+                        .HasForeignKey("AddressId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("address");
                 });
 
             modelBuilder.Entity("Entities.Models.Product", b =>

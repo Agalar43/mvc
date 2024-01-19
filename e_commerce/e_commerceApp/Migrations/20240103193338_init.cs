@@ -91,6 +91,7 @@ namespace ecommerceApp.Migrations
                     userId = table.Column<string>(type: "TEXT", nullable: true),
                     Name = table.Column<string>(type: "TEXT", nullable: false),
                     Adress = table.Column<string>(type: "TEXT", nullable: true),
+                    AddressId = table.Column<int>(type: "INTEGER", nullable: false),
                     GiftWrap = table.Column<bool>(type: "INTEGER", nullable: false),
                     Shipped = table.Column<bool>(type: "INTEGER", nullable: false),
                     OrderedAt = table.Column<DateTime>(type: "TEXT", nullable: false)
@@ -98,6 +99,12 @@ namespace ecommerceApp.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Orders", x => x.OrderID);
+                    table.ForeignKey(
+                        name: "FK_Orders_Address_AddressId",
+                        column: x => x.AddressId,
+                        principalTable: "Address",
+                        principalColumn: "AddressID",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -289,9 +296,9 @@ namespace ecommerceApp.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "0b5ae38f-9cac-4275-8004-871db88c8a48", null, "Editor", "EDITOR" },
-                    { "34372bd0-78cf-4c67-99e4-5d930920fe16", null, "user", "USER" },
-                    { "e68e1cf1-fd6c-4fb6-8f45-5f802cd6f8ed", null, "Admin", "ADMIN" }
+                    { "303c2978-d64e-4fcf-a188-e7564ae1703b", null, "user", "USER" },
+                    { "c3f203a3-e477-4de1-9add-e060afb7e52d", null, "Admin", "ADMIN" },
+                    { "d4e7ae0d-fc28-47df-824f-de35514110c6", null, "Editor", "EDITOR" }
                 });
 
             migrationBuilder.InsertData(
@@ -374,6 +381,11 @@ namespace ecommerceApp.Migrations
                 column: "productId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Orders_AddressId",
+                table: "Orders",
+                column: "AddressId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Products_CategoryID",
                 table: "Products",
                 column: "CategoryID");
@@ -382,9 +394,6 @@ namespace ecommerceApp.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "Address");
-
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
 
@@ -417,6 +426,9 @@ namespace ecommerceApp.Migrations
 
             migrationBuilder.DropTable(
                 name: "Products");
+
+            migrationBuilder.DropTable(
+                name: "Address");
 
             migrationBuilder.DropTable(
                 name: "Categories");

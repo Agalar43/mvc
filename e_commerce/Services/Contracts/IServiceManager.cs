@@ -9,5 +9,8 @@ namespace Services.Contracts
         IAddressService AddressService{get;}
         IAuthService AuthService{get;}
         ICommentService CommentService{get;}
+
+        IPaymentService PaymentService{get;}
+       
     }
 }

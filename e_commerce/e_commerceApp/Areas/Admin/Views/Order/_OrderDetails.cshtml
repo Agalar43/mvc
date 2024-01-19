@@ -10,7 +10,10 @@
             @Model?.Name
         </h5>
           <span class="text-danger">@(Model.GiftWrap ? "GiftWrap : Yes " :"GiftWrap : No ")</span>
-        <p>@Model?.Adress</p>
+         <p>@Model?.address?.CityName</p>
+        <p>@Model?.address?.AddressName</p>
+         <p>@Model?.address?.DistrictName</p>
+         <p>@Model?.address?.ZipCode</p>
         <p class="rounded-2 p-3">
           
             <span class="bg-warning p-2">Shipped</span>

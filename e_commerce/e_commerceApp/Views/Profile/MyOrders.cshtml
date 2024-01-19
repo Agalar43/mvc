@@ -23,7 +23,7 @@
                         <span class="text-danger">@(order.GiftWrap ? "GiftWrap : Yes " : "GiftWrap : No ")</span>
                         <p>
                             <i class="fa fa-address-book text-danger"></i>
-                            Address : @order?.Adress
+                            Address : @order?.address?.CityName / @order?.address?.AddressName /@order?.address?.DistrictName / @order?.address?.ZipCode
                         </p>
                         <h5>
                             <partial name="OrderDetails" model="@order" />

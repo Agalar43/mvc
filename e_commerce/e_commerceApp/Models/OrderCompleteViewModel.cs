@@ -7,7 +7,9 @@ namespace e_commerceApp.Models
     {
         public IEnumerable<Address>? address { get; set; }
 
-        
+        public Address? Address{get;set;}
         public Order? order { get; set; }
+
+        
     }
 }

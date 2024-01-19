@@ -12,8 +12,9 @@ namespace Repositories
         }
 
         public IQueryable<Order> Orders => _context.Orders
-            .Include(o => o.Lines)
+            .Include(o => o.Lines )
             .ThenInclude(cl => cl.Product)
+            .Include(o => o.address)
             .OrderBy(o => o.Shipped)
             .ThenByDescending(o => o.OrderID);
 
@@ -40,6 +41,7 @@ namespace Repositories
             return _context.Orders
             .Include(o => o.Lines)
              .ThenInclude(cl => cl.Product)
+            .Include(a=>a.address)
              .OrderBy(o => o.Shipped)
              .Where(o => o.userId == id);
         }

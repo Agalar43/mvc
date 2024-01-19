@@ -16,8 +16,12 @@ namespace Entities.Models
         [Required(ErrorMessage = "Name is required")]
         public String? Name { get; set; }
         public String? Adress { get; set; }
+        public int AddressId { get; set; }
+        public Address? address { get; set; }
         public bool GiftWrap { get; set; }
         public bool Shipped { get; set; }
         public DateTime OrderedAt { get; set; } = DateTime.Now;
+
+
     }
 }

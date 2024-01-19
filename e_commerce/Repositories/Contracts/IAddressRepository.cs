@@ -9,5 +9,6 @@ namespace Repositories.Contracts
         void DeletenOneAddress(Address address);
         IQueryable<Address> GetAllAddress(string? id);
         Address? GetOneAddress(int id, bool trackChanges);
+        Address? GetOrderAddress(int addressId);
     }
 }

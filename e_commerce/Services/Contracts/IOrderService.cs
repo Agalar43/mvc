@@ -11,6 +11,7 @@ namespace Services.Contracts
 
         void SaveOrder(Order order);
         IEnumerable<Order> GetUserOrder(string? id);
+       
 
         int NumberOfInProcess { get; }
     }

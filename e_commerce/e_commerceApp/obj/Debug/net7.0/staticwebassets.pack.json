@@ -77,6 +77,10 @@
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
+      "Id": "C:\\Users\\asus\\Desktop\\AgalarWebProjesi\\e_commerce\\e_commerceApp\\wwwroot\\js\\stripe.js",
+      "PackagePath": "staticwebassets\\js\\stripe.js"
+    },
+    {
       "Id": "C:\\Users\\asus\\Desktop\\AgalarWebProjesi\\e_commerce\\e_commerceApp\\wwwroot\\lib\\bootstrap\\css\\bootstrap-grid.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\css\\bootstrap-grid.css"
     },

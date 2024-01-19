@@ -26,9 +26,10 @@ namespace e_commerceApp.Controllers
             var user = await _userManager.GetUserAsync(User);
             var model = _manager.AddressService.GetAllAddress(user?.Id);
             ViewBag.Address = AddressSelectList();
+
             return View(new OrderCompleteViewModel()
             {
-                address=model,
+                address = model,
                 order = new Order()
             });
         }
@@ -37,6 +38,8 @@ namespace e_commerceApp.Controllers
         public async Task<IActionResult> Checkout([FromForm] Order order)
         {
             var user = await _userManager.GetUserAsync(User);
+            _manager.PaymentService.CreateCustomer(user.UserName);
+            _manager.PaymentService.CreateOrPaymentIntent();
 
 
             if (_cart.Lines.Count() == 0)

@@ -25,5 +25,10 @@ namespace Repositories
         {
             return FindByCondition(p => p.AddressID.Equals(id), trackChanges);
         }
+
+        public Address? GetOrderAddress(int addressId)
+        {
+            return FindByCondition(p=> p.AddressID.Equals(addressId),false);
+        }
     }
 }

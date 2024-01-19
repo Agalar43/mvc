@@ -11,7 +11,8 @@ namespace Services
         private readonly IAuthService _authService;
         private readonly IAddressService _addressService;
         private readonly ICommentService _commentService;
-        public ServiceManager(ICategoryService categoryService, IProductService productService, IOrderService orderService, IAuthService authService, IAddressService addressService, ICommentService commentService)
+        private readonly IPaymentService _paymentService;
+        public ServiceManager(ICategoryService categoryService, IProductService productService, IOrderService orderService, IAuthService authService, IAddressService addressService, ICommentService commentService, IPaymentService paymentService)
         {
             _categoryService = categoryService;
             _productService = productService;
@@ -19,6 +20,7 @@ namespace Services
             _authService = authService;
             _addressService = addressService;
             _commentService = commentService;
+            _paymentService = paymentService;
         }
 
         public IProductService ProductService => _productService;
@@ -32,5 +34,7 @@ namespace Services
         public IAddressService AddressService => _addressService;
 
         public ICommentService CommentService => _commentService;
+
+        public IPaymentService PaymentService => _paymentService;
     }
 }

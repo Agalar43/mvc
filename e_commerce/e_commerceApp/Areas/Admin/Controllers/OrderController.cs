@@ -1,3 +1,5 @@
+using e_commerceApp.Models;
+using Entities.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Services.Contracts;
@@ -5,7 +7,7 @@ using Services.Contracts;
 namespace e_commerceApp.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles ="Admin")]
+    [Authorize(Roles = "Admin")]
     public class OrderController : Controller
     {
         private readonly IServiceManager _manager;
@@ -15,9 +17,14 @@ namespace e_commerceApp.Areas.Admin.Controllers
             _manager = manager;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(Order order)
         {
             var orders = _manager.OrderService.Orders;
+            
+            
+
+            // İkinci modeli özel bir değişken ile gönder
+          
             return View(orders);
         }
         [HttpPost]

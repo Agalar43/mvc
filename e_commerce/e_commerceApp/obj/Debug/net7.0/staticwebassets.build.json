@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "s11OdywFoqcu6kGD2diov0vToDhLbNG/7CeAIogfe1s=",
+  "Hash": "T1GX1UqUMSk4O9gUDtkb6obVzvPEpwMatuWafCdt6xY=",
   "Source": "e_commerceApp",
   "BasePath": "_content/e_commerceApp",
   "Mode": "Default",
@@ -338,6 +338,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
+    },
+    {
+      "Identity": "C:\\Users\\asus\\Desktop\\AgalarWebProjesi\\e_commerce\\e_commerceApp\\wwwroot\\js\\stripe.js",
+      "SourceId": "e_commerceApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\asus\\Desktop\\AgalarWebProjesi\\e_commerce\\e_commerceApp\\wwwroot\\",
+      "BasePath": "_content/e_commerceApp",
+      "RelativePath": "js/stripe.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\stripe.js"
     },
     {
       "Identity": "C:\\Users\\asus\\Desktop\\AgalarWebProjesi\\e_commerce\\e_commerceApp\\wwwroot\\lib\\bootstrap\\css\\bootstrap-grid.css",

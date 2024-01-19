@@ -12,6 +12,6 @@ namespace Services.Contracts
         IEnumerable<Address> GetAllAddress(string? id);
 
         void DeleteAllAddress(string id);
-
+        Address? GetOrderAddress(int addressId);
     }
 }
